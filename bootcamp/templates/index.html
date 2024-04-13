@@ -1,0 +1,538 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+			{% if title %}
+			<title>{{title}}</title>
+			{% else %}
+			<title>Python Bootcamp</title>
+			{% endif %}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css')}}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css')}}" />
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css')}}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="fa-brands fa-python fa-2xl"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>3 weeks PYTHON BOOTCAMP</h1>
+								<p>Brought to you by TechCap Initiative</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Overview</a></li>
+								<li><a href="#register">Register</a></li>
+								<li><a href="#about">Tutors</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+					<!-- Flash messages using jinja2 templates in flask with multiple alert types for different categories -->
+
+					<!-- success alert -->
+					{% with success = get_flashed_messages(category_filter=["success"]) %}
+					{% if success %}
+					{% for message in success %}
+					<div class="flex justify-center w-full px-4">
+						<div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 7000)"
+							class="w-full sm:w-3/4 md:w-1/2 lg:w-1/2 xl:w-1/2 bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 py-3 shadow-md"
+							role="alert">
+							<div class="flex items-center space-around">
+								<div class="py-1">
+									<svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-6 w-6 text-white-500 mr-4"
+										viewBox="0 0 20 20">
+										<path fill-rule="evenodd"
+											d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+											clip-rule="evenodd" />
+									</svg>
+								</div>
+								<div>
+									<p class="text-sm">{{message}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					{% endwith %}
+
+					<!-- danger alert -->
+					{% with danger = get_flashed_messages(category_filter=["danger"]) %}
+					{% if danger %}
+					{% for message in danger %}
+					<div class="flex justify-center w-full px-4">
+						<div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 7000)"
+							class="w-full sm:w-3/4 md:w-1/2 lg:w-1/2 xl:w-1/2 bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md"
+							role="alert">
+							<div class="flex items-center space-around">
+								<div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 20 20">
+										<path
+											d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+									</svg>
+								</div>
+								<div>
+									<p class="text-sm">{{message}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					{% endwith %}
+
+					<!-- info alert -->
+					{% with info = get_flashed_messages(category_filter=["info"]) %}
+					{% if info %}
+					{% for message in info %}
+					<div class="flex justify-center w-full px-4">
+						<div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 7000)"
+							class="w-full sm:w-3/4 md:w-1/2 lg:w-1/2 xl:w-1/2 bg-yellow-100 border-t-4 border-yellow-500 rounded-b text-yellow-900 px-4 py-3 shadow-md"
+							role="alert">
+							<div class="flex items-center space-around">
+								<div class="py-1">
+									<svg xmlns="http://www.w3.org/2000/svg" class="fill-current h-6 w-6 text-white-500 mr-4"
+										viewBox="0 0 20 20">
+										<path fill-rule="evenodd"
+											d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+											clip-rule="evenodd" />
+									</svg>
+								</div>
+								<div>
+									<p class="text-sm">{{message}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+					{% endwith %}
+
+
+
+
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Welcome</h2>
+								<p>Designed with beginners in mind, this bootcamp is the perfect launchpad for anyone looking to dive into the world of coding. Whether you're aspiring to switch
+								careers, enhance your current job profile, or simply curious about programming, our program caters to all levels from
+								absolute beginners to intermediate coders. Over the course of two months, during convenient weekend sessions, you will
+								transition from learning the basics of Python to mastering skills that will empower you to apply Python effectively in
+								any field you choose.<p>Our bootcamp stands out because it's led by fellow students who have shown exceptional aptitude in coding, ensuring you
+								learn from those who have recently navigated the same learning path. This unique peer-led format fosters an engaging and
+								supportive learning environment, enabling you to grasp complex concepts more comfortably and confidently. As a
+								participant, you'll not only gain a solid foundation in Python but also learn how to think like a programmer, opening up
+								a world of possibilities in tech. While we haven't set a registration deadline yet, spots are filling up fast. Join us
+								for this in-person, transformative journey with the TechCap Initiative and take your first step towards becoming a
+								proficient Python programmer.</p>
+							</article>
+
+						<!-- Register -->
+						<article id="register">
+							<h2 class="major">Register</h2>
+							<form method="POST" action="{{ url_for('main.register') }}">
+								{{ form.hidden_tag() }}
+								<div class="field"><div class="field half">
+									<!-- the form label and input allow for styling by passing the styling arguements directly -->
+									<!-- 2 different form schemes for error and non error display-->
+									{{form.fname.label(class="block mb-2 font-bold text-text-indigo-900")}}
+									{% if form.fname.errors %}
+									{{form.fname(class="w-full p-2 mb-1 text-indigo-700 border-b-2 border-red-500 outline-none
+									focus:bg-gray-300")}}
+									<div class="text-red-500 text-xs italic">
+										{% for error in form.fname.errors %}
+										<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+									{% else %}
+									{{form.fname(class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none
+									focus:bg-gray-300")}}
+									{% endif %}
+								</div>
+								<div class="field half">
+									<!-- the form label and input allow for styling by passing the styling arguements directly -->
+									<!-- 2 different form schemes for error and non error display-->
+									{{form.lname.label(class="block mb-2 font-bold text-text-indigo-900")}}
+									{% if form.lname.errors %}
+									{{form.lname(class="w-full p-2 mb-1 text-indigo-700 border-b-2 border-red-500 outline-none
+									focus:bg-gray-300")}}
+									<div class="text-red-500 text-xs italic">
+										{% for error in form.lname.errors %}
+										<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+									{% else %}
+									{{form.lname(class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none
+									focus:bg-gray-300")}}
+									{% endif %}
+								</div>
+								<div class="field half">
+									{{form.email.label(class="block mb-2 font-bold text-text-indigo-900")}}
+									{% if form.email.errors %}
+									{{form.email(class="w-full p-2 mb-1 text-indigo-700 border-b-2 border-red-500 outline-none focus:bg-gray-300")}}
+									<div class="text-red-500 text-xs italic">
+										{% for error in form.email.errors %}
+										<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+									{% else %}
+									{{form.email(class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none
+									focus:bg-gray-300")}}
+									{% endif %}
+								</div>
+								<div class="field half">
+									<!-- the form label and input allow for styling by passing the styling arguements directly -->
+									<!-- 2 different form schemes for error and non error display-->
+									{{form.program.label(class="block mb-2 font-bold text-text-indigo-900")}}
+									{% if form.program.errors %}
+									{{form.program(class="w-full p-2 mb-1 text-indigo-700 border-b-2 border-red-500 outline-none
+									focus:bg-gray-300")}}
+									<div class="text-red-500 text-xs italic">
+										{% for error in form.program.errors %}
+										<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+									{% else %}
+									{{form.program(class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none
+									focus:bg-gray-300")}}
+									{% endif %}
+								</div>
+								<div class="field half">
+									<!-- the form label and input allow for styling by passing the styling arguements directly -->
+									<!-- 2 different form schemes for error and non error display-->
+									{{form.area_of_interest.label(class="block mb-2 font-bold text-text-indigo-900")}}
+									{% if form.area_of_interest.errors %}
+									{{form.area_of_interest(class="w-full p-2 mb-1 text-indigo-700 border-b-2 border-red-500 outline-none
+									focus:bg-gray-300")}}
+									<div class="text-red-500 text-xs italic">
+										{% for error in form.area_of_interest.errors %}
+										<span>{{ error }}</span>
+										{% endfor %}
+									</div>
+									{% else %}
+									{{form.area_of_interest(class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none
+									focus:bg-gray-300")}}
+									{% endif %}
+								</div>
+								<div class="actions">
+									{{ form.submit(class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 mb-6
+									rounded-full")}}
+								</div></div>
+							</form>
+						</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">Your Tutors</h2>
+								<span class="image main"><img src="{{ url_for('static', filename='images/pic03.jpg')}}" alt="" /></span>
+								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="{{ url_for('main.submit_form') }}">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-whatsapp"><span class="label">Whatsapp</span></a></li>
+									<li><a href="#" class="icon brands fa-telegram"><span class="label">Telegram</span></a></li>
+								</ul>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; 2024 TechCap Initiative.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static', filename = 'assets/js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='assets/js/browser.min.js' )}}"></script>
+			<script src="{{ url_for('static', filename = 'assets/js/breakpoints.min.js')}}"></script>
+			<script src="{{ url_for('static', filename='assets/js/util.js')}}"></script>
+			<script src="{{ url_for('static', filename='assets/js/main.js')}}"></script>
+			<script src="https://kit.fontawesome.com/aeee10d713.js" crossorigin="anonymous"></script>
+			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.7/dist/cdn.min.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header,
+        .content,
+        .footer {
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #004aad;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .button {
+            background-color: #004aad;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .footer {
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #004aad;
+            text-decoration: none;
+        }
+
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #333;
+                color: white;
+            }
+
+            .footer {
+                background-color: #222;
+                color: #ccc;
+            }
+
+            .contact-info a {
+                color: #4e9af1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="https://github.com/Shinku-AI/Logo/blob/main/Outlook-jen3klmq.jpg?raw=true" alt="Logo" style="max-width: 100px;">
+        <h1>Hello {{name}}, welcome to the TechCap Initiative Python Bootcamp!</h1>
+    </div>
+    <div class="content">
+        <p>Thank you for registering. We're excited to have you with us!</p>
+        <p>To complete your registration, please choose one of the following payment options:</p>
+        <ul>
+            <li>Option 1: PayPal</li>
+        </ul>
+    </div>
+    <div class="footer">
+        <p>Stay Connected with Us:</p>
+        <p class="contact-info">
+            Email: <a href="mailto:your_email@example.com">your_email@example.com</a><br>
+            WhatsApp: <a href="https://wa.me/your_whatsapp_number">your_whatsapp_number</a><br>
+            Telegram: <a href="https://t.me/your_telegram">your_telegram</a><br>
+            Phone: your_phone_number
+        </p>
+    </div>
+</body>
+
+</html>
